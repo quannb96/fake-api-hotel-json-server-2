@@ -12,9 +12,9 @@ server.use(router);
 server.use(auth);
 
 // Add custom routes before JSON Server router
-server.get("/echo", (req, res) => {
-  res.jsonp(req.query);
-});
+// server.get("/echo", (req, res) => {
+//   res.jsonp(req.query);
+// });
 
 // You can use the one used by JSON Server
 server.use(jsonServer.bodyParser);
