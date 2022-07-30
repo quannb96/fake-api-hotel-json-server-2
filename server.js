@@ -20,8 +20,9 @@ server.get("/echo", (req, res) => {
 server.use(jsonServer.bodyParser);
 server.use((req, res, next) => {
   if (req.method === "POST") {
-    req.body.createdAt = Date.now(); //chổ này là tự động tạo ngày tạo đối với phương thức post
-    req.body.updateAt = Date.now(); // chổ này tự động tạo ngày update vào đối tượng khi có sự thay đổi
+    var date = new Date();
+    req.body.createdAt = date.toISOString(); //chổ này là tự động tạo ngày tạo đối với phương thức post
+    req.body.updateAt = date.toISOString(); // chổ này tự động tạo ngày update vào đối tượng khi có sự thay đổi
   }
   // Continue to JSON Server router
   next();
@@ -31,10 +32,8 @@ server.use((req, res, next) => {
 server.use("/api/auth", auth); // chổ này là cấu hình đường dẫn cho phần auth vd đường dẫn base là http://localhost:3001/
 //thì đường dẫn vào trang đăng kí sẽ là http://localhost:3001/api/auth/resgister
 server.use("/api", router); // chổ này là cấu hình đường dẫn vào api chính
-
 const port = process.env.PORT || 3005;
-
 server.listen(port, () => {
   // nếu muốn thay đổi cổng lắng nghe thì đổi ở đây mặc định mình để 3003 để tránh trùng với reactjs
-  console.log("JSON Server is running on port 3050");
+  console.log("JSON Server is running on port 3005");
 });
