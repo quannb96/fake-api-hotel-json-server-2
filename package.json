@@ -1,17 +1,17 @@
 {
-  "name": "fake-api",
+  "name": "json-server-deploy",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Simple json database to deploy to the host of your choice",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node main.js"
+    "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "ninjakodtv, json-server,heroku, node, REST API"
+  ],
+  "author": "Ninjakod TV Mehmet Yılmaz",
   "license": "ISC",
   "dependencies": {
-    "json-server": "^0.17.0",
-    "json-server-auth": "^2.1.0"
+    "json-server": "^0.17.0"
   }
 }
